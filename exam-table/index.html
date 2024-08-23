@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جداول الاختبارات</title>
+    <style>
+      /* Define color variables */
+:root {
+    --background-color: #e3f2fd; /* خلفية بلون فاتح جداً */
+    --text-color: #2c3e50; /* نص أزرق داكن */
+    --header-bg-color: #2980b9; /* لون أزرق متين للرأس */
+    --header-text-color: #ffffff; /* نص أبيض للتباين الجيد */
+    --card-bg-color: #ffffff; /* خلفية بيضاء نظيفة */
+    --card-border-color: #d0d0d0; /* لون حدود خفيفة */
+    --card-hover-bg-color: #3498db; /* لون أزرق مائل للشفافية عند التمرير */
+    --table-header-bg-color: #2980b9; /* نفس لون الرأس للجدول */
+    --table-header-text-color: #ffffff; /* نص أبيض للتباين الجيد */
+    --table-odd-row-bg-color: #ffffff; /* خلفية بيضاء للصفوف الفردية */
+    --table-even-row-bg-color: #f2f2f2; /* خلفية رمادية فاتحة للصفوف الزوجية */
+    --footer-bg-color: #2980b9; /* لون أزرق متين للجزء السفلي */
+    --footer-text-color: #ffffff; /* نص أبيض للتباين الجيد */
+}
+
+
+
+/* Reset some default styles */
+body, h1, h2, p, table {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* General body styles */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: var(--header-bg-color);
+    padding: 1em;
+    text-align: center;
+    color: var(--header-text-color);
+}
+
+header h1 {
+    margin-bottom: 0.5em;
+    font-size: 2rem;
+}
+
+main {
+    padding: 2em;
+}
+
+.cards-p {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1em;
+    color: var(--text-color);
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.card {
+    flex: 1 1 300px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.2);
+    
+    padding: 2em;
+    border: 2px solid var(--card-border-color);
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+    background-color: var(--card-hover-bg-color);
+    color: #ffffff;
+    transform: scale(1.01);
+}
+
+.tables {
+    display: none;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-top: 2em;
+}
+
+.table-container {
+    flex: 1 1 300px;
+    background-color: var(--card-bg-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-container h3 {
+    background-color: #f8f9fa; /* Light grey background for headings */
+    padding: 0.5em;
+    margin: 0;
+    color: var(--text-color);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 0.75em;
+    text-align: center;
+    border-bottom: 1px solid var(--card-border-color);
+}
+
+thead {
+    background-color: var(--table-header-bg-color);
+    color: var(--table-header-text-color);
+}
+
+tbody tr:nth-child(odd) {
+    background-color: var(--table-odd-row-bg-color);
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--table-even-row-bg-color);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cards {
+        flex-direction: column;
+        gap: 0;
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
+
+    .card h2 {
+        font-size: 1rem;
+    }
+
+    .card {
+        flex: 1 1 auto;
+        margin: 0.5em;
+    }
+}
+
+         section{
+          min-height: 100vh;
+        }
+        footer{
+          padding: 1rem;
+          bottom: 0;
+          color: #fff;
+          text-align: center;
+          font-size: 1.3rem;
+          background-color: black;
+        }
+        footer a{
+          text-decoration: none;
+          font-size: 1.5rem;
+          color: #2ef;
+          text-shadow: 2px 2px 5px #2ed;
+        }
+    </style>
+</head>
+<body dir="rtl">
+    <header>
+        <h1>جداول الاختبارات</h1>
+    </header>
+    <section>
+    <main>
+        <p class="cards-p">:السنوات</p>
+        <div class="cards">
+            <div class="card" data-year="first">
+                <h2>الأولى</h2>
+            </div>
+            <div class="card" data-year="second">
+                <h2>الثانية</h2>
+            </div>
+            <div class="card" data-year="third">
+                <h2>الثالثة</h2>
+            </div>
+        </div>
+        <div class="tables" id="tables-container">
+            <!-- سيتم إدراج جداول الاختبارات هنا باستخدام JavaScript -->
+        </div>
+        <br>
+        <br>
+    </main>
+
+
+  
+</section>
+
+<footer>
+  <p>developed by <a href="https://dhiya.netlify.app">dyaa</a></p>
+</footer>
+    <script>
+const cardData = {
+    first: [
+        {
+            section: 'شعبة العلوم',
+            subjects: [
+                ['الرياضيات', '/ أكتوبر 2024', '09:00'],
+                ['الفيزياء', '/ أكتوبر 2024', '11:00'],
+                ['العلوم الطبيعية', '/ أكتوبر 2024', '09:00'],
+                ['لغة عربية', '/ أكتوبر 2024', '11:00'],
+                ['لغة فرنسية', '/ أكتوبر 2024', '13:00'],
+                ['تاريخ وجغرافيا', '/ أكتوبر 2024', '09:00']
+                       ,
+                ['تربية اسلامية ', '/ أكتوبر 2024', '09:00']
+                ,
+                ['رياضية ', '/ أكتوبر 2024', '09:00']
+            ]
+        },
+        {
+            section: 'شعبة الآداب',
+            subjects: [
+                ['اللغة العربية', '/ أكتوبر 2024', '10:00'],
+                ['اللغة الفرنسية', '/ أكتوبر 2024', '12:00'],
+                 ['تاريخ وجغرافيا', '/ أكتوبر 2024', '09:00']                        ,                 ['تربية اسلامية ', '/ أكتوبر 2024', '09:00']                 ,                 ['رياضية ', '/ أكتوبر 2024', '09:00'],
+                ['فلسفة', '08 / 2024', '11:00'],
+                ['اللغة الإنجليزية', '/ أكتوبر 2024', '13:00']
+            ]
+        }
+    ],
+    second: [
+              {
+            section: 'شعبة تقني رياضي',
+            subjects: [
+                ['الرياضيات', '/ أكتوبر 2024', '09:00'],
+                ['الفيزياء', '/ أكتوبر 2024', '11:00'],
+                [' تكنولوجيا ', '/ أكتوبر 2024', '09:00'],
+                ['لغة عربية', '/ أكتوبر 2024', '11:00'],
+                ['لغة فرنسية', '09 أكتوبر 2024', '13:00'],
+                ['تاريخ وجغرافيا', '11 أكتوبر 2024', '09:00']
+
+            ]
+        },
+        {
+            section: 'شعبة العلوم',
+            subjects: [
+                ['الرياضيات', '/ أكتوبر 2024', '09:00'],
+                ['الفيزياء', '/ أكتوبر 2024', '11:00'],
+                ['العلوم الطبيعية', '/ أكتوبر 2024', '09:00'],
+                ['لغة عربية', '/ أكتوبر 2024', '11:00'],
+                ['لغة فرنسية', '/ أكتوبر 2024', '13:00'],
+                 ['تاريخ وجغرافيا', '/ أكتوبر 2024', '09:00']                        ,                 ['تربية اسلامية ', '/ أكتوبر 2024', '09:00']                 ,                 ['رياضية ', '/ أكتوبر 2024', '09:00']
+            ]
+        },
+        {
+            section: 'شعبة الآداب',
+            subjects: [
+                ['اللغة العربية', '/ أكتوبر 2024', '10:00'],
+                ['اللغة الفرنسية', '/ أكتوبر 2024', '12:00'],
+                 ['تاريخ وجغرافيا', '/ أكتوبر 2024', '09:00']                        ,                 ['تربية اسلامية ', '/ أكتوبر 2024', '09:00']                 ,                 ['رياضية ', '/ أكتوبر 2024', '09:00'],
+                ['فلسفة', '/ أكتوبر 2024', '11:00'],
+                ['اللغة الإنجليزية', '10 أكتوبر 2024', '13:00']
+            ]
+        },
+        {
+            section: 'شعبة تسير و إقتصاد',
+            subjects: [
+                ['اللغة العربية', '/ أكتوبر 2024', '10:00'],
+                ['اللغة الفرنسية', '/ أكتوبر 2024', '12:00'],
+                 ['تاريخ وجغرافيا', '/ أكتوبر 2024', '09:00']                        ,                 ['تربية اسلامية ', '/ أكتوبر 2024', '09:00']                 ,                 ['رياضية ', '/ أكتوبر 2024', '09:00'],
+                ['فلسفة', '/ أكتوبر 2024', '11:00'],
+                ['اللغة الإنجليزية', '10 أكتوبر 2024', '13:00']
+            ]
+        },
+        {
+            section: 'شعبة لغات',
+            subjects: [
+                ['اللغة العربية', '/ أكتوبر 2024', '10:00'],
+                ['اللغة الفرنسية', '/ أكتوبر 2024', '12:00'],
+                 ['تاريخ وجغرافيا', '/ أكتوبر 2024', '09:00']                        ,                 ['تربية اسلامية ', '/ أكتوبر 2024', '09:00']                 ,                 ['رياضية ', '/ أكتوبر 2024', '09:00'],
+                ['فلسفة', '/ أكتوبر 2024', '11:00'],
+                ['اللغة الإنجليزية', '10 أكتوبر 2024', '13:00']
+            ]
+        },
+
+    ],
+    third: [
+              {
+            section: 'شعبة تقني رياضي',
+            subjects: [
+                ['الرياضيات', '/ أكتوبر 2024', '09:00'],
+                ['الفيزياء', '/ أكتوبر 2024', '11:00'],
+                [' تكنولوجيا ', '/ أكتوبر 2024', '09:00'],
+                ['لغة عربية', '/ أكتوبر 2024', '11:00'],
+                ['لغة فرنسية', '/ أكتوبر 2024', '13:00'],
+                 ['تاريخ وجغرافيا', '/ أكتوبر 2024', '09:00']                        ,                 ['تربية اسلامية ', '/ أكتوبر 2024', '09:00']                 ,                 ['رياضية ', '/ أكتوبر 2024', '09:00']
+            ]
+        },
+        {
+            section: 'شعبة العلوم',
+            subjects: [
+                ['الرياضيات', '/ أكتوبر 2024', '09:00'],
+                ['الفيزياء', '/ أكتوبر 2024', '11:00'],
+                ['العلوم الطبيعية', '/ أكتوبر 2024', '09:00'],
+                ['لغة عربية', '/ أكتوبر 2024', '11:00'],
+                ['لغة فرنسية', '09 أكتوبر 2024', '13:00'],
+                ['تاريخ وجغرافيا', '11 أكتوبر 2024', '09:00']
+            ]
+        },
+        {
+            section: 'شعبة الآداب',
+            subjects: [
+                ['اللغة العربية', '02 أكتوبر 2024', '10:00'],
+                ['اللغة الفرنسية', '04 أكتوبر 2024', '12:00'],
+                ['تاريخ وجغرافيا', '06 أكتوبر 2024', '09:00'],
+                ['فلسفة', '/ أكتوبر 2024', '11:00'],
+                ['اللغة الإنجليزية', '10 أكتوبر 2024', '13:00']
+            ]
+        },
+        {
+            section: 'شعبة لغات',
+            subjects: [
+                ['اللغة العربية', '02 أكتوبر 2024', '10:00'],
+                ['اللغة الفرنسية', '04 أكتوبر 2024', '12:00'],
+                ['تاريخ وجغرافيا', '06 أكتوبر 2024', '09:00'],
+                ['فلسفة', '/ أكتوبر 2024', '11:00'],
+                ['اللغة الإنجليزية', '10 أكتوبر 2024', '13:00']
+            ]
+        },
+        {
+            section: 'شعبة تسير و إقتصاد',
+            subjects: [
+                ['اللغة العربية', '02 أكتوبر 2024', '10:00'],
+                ['اللغة الفرنسية', '04 أكتوبر 2024', '12:00'],
+                ['تاريخ وجغرافيا', '06 أكتوبر 2024', '09:00'],
+                ['فلسفة', '/ أكتوبر 2024', '11:00'],
+                ['اللغة الإنجليزية', '10 أكتوبر 2024', '13:00']
+            ]
+        }
+
+    ]
+};
+
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', () => {
+                const year = card.getAttribute('data-year');
+                const tablesContainer = document.getElementById('tables-container');
+                
+                // Clear previous tables
+                tablesContainer.innerHTML = '';
+
+                // Add tables for the selected year
+                cardData[year].forEach(data => {
+                    const container = document.createElement('div');
+                    container.className = 'table-container';
+                    
+                    const heading = document.createElement('h3');
+                    heading.textContent = data.section;
+                    container.appendChild(heading);
+                    
+                    const table = document.createElement('table');
+                    const thead = document.createElement('thead');
+                    const tbody = document.createElement('tbody');
+                    
+                    const headerRow = document.createElement('tr');
+                    ['المادة', 'التاريخ', 'الوقت'].forEach(text => {
+                        const th = document.createElement('th');
+                        th.textContent = text;
+                        headerRow.appendChild(th);
+                    });
+                    thead.appendChild(headerRow);
+                    
+                    data.subjects.forEach(subject => {
+                        const row = document.createElement('tr');
+                        subject.forEach(text => {
+                            const td = document.createElement('td');
+                            td.textContent = text;
+                            row.appendChild(td);
+                        });
+                        tbody.appendChild(row);
+                    });
+                    
+                    table.appendChild(thead);
+                    table.appendChild(tbody);
+                    container.appendChild(table);
+                    
+                    tablesContainer.appendChild(container);
+                });
+
+                // Show tables container
+                tablesContainer.style.display = 'flex';
+            });
+        });
+    </script>
+</body>
+</html>
