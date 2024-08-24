@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>جداول الاختبارات</title>
     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yatra+One&display=swap');
       /* Define color variables */
 :root {
-    --background-color: #e3f2fd; /* خلفية بلون فاتح جداً */
+    --background-color: #eeeeee; /* خلفية بلون فاتح جداً */
     --text-color: #2c3e50; /* نص أزرق داكن */
-    --header-bg-color: #2980b9; /* لون أزرق متين للرأس */
     --header-text-color: #ffffff; /* نص أبيض للتباين الجيد */
     --card-bg-color: #ffffff; /* خلفية بيضاء نظيفة */
-    --card-border-color: #d0d0d0; /* لون حدود خفيفة */
-    --card-hover-bg-color: #3498db; /* لون أزرق مائل للشفافية عند التمرير */
-    --table-header-bg-color: #2980b9; /* نفس لون الرأس للجدول */
-    --table-header-text-color: #ffffff; /* نص أبيض للتباين الجيد */
+    --card-border-color: #111; /* لون حدود خفيفة */
+    --table-header-bg-color: #E99F4C; /* نفس لون الرأس للجدول */
     --table-odd-row-bg-color: #ffffff; /* خلفية بيضاء للصفوف الفردية */
     --table-even-row-bg-color: #f2f2f2; /* خلفية رمادية فاتحة للصفوف الزوجية */
     --footer-bg-color: #2980b9; /* لون أزرق متين للجزء السفلي */
@@ -40,18 +39,6 @@ body {
     overflow-x: hidden;
 }
 
-header {
-    background-color: var(--header-bg-color);
-    padding: 1em;
-    text-align: center;
-    color: var(--header-text-color);
-}
-
-header h1 {
-    margin-bottom: 0.5em;
-    font-size: 2rem;
-}
-
 main {
     padding: 2em;
 }
@@ -59,7 +46,8 @@ main {
 .cards-p {
     font-size: 2rem;
     text-align: center;
-    margin-bottom: 1em;
+    margin-bottom: 1rem;
+    margin-top: 4em;
     color: var(--text-color);
 }
 
@@ -74,18 +62,19 @@ main {
     flex: 1 1 300px;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.2);
-    
+  border: 2px solid #264143;
+  box-shadow: 3px 4px 0px 1px #E99F4C;
+  transition: background-color 0.3s, box-shadow 0.3s;
     padding: 2em;
-    border: 2px solid var(--card-border-color);
     text-align: center;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .card:hover {
-    background-color: var(--card-hover-bg-color);
-    color: #ffffff;
+    box-shadow: none;
+          translate: 3px 4px;
+          background-color: #f0f4f8;
+    color: #111;
     transform: scale(1.01);
 }
 
@@ -172,15 +161,47 @@ tbody tr:nth-child(even) {
           color: #2ef;
           text-shadow: 2px 2px 5px #2ed;
         }
+        header {
+          margin: 0;
+          margin-bottom: 2rem;
+          margin-top: 1rem;
+          padding: 0;
+          text-align: center;
+          color: #111;
+          backdrop-filter:blur(50px) ;
+          width: 300px;
+          border: 2px solid #111;
+          border-radius: 50px;
+        }
+        nav{
+          z-index: 9999;
+          top: 0;
+          right: 20%;
+          left: 20%;
+          position: fixed;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        header h1 {
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    font-size: 2rem;
+}
+.font{
+  font-family: "Yatra One";
+}
     </style>
 </head>
-<body dir="rtl">
+      <nav>
     <header>
-        <h1>جداول الاختبارات</h1>
+        <h1 class="font">Dyaa Exam </h1>
     </header>
+      </nav>
+<body dir="rtl">
     <section>
     <main>
-        <p class="cards-p">:السنوات</p>
+        <p class="cards-p">السنوات :</p>
         <div class="cards">
             <div class="card" data-year="first">
                 <h2>الأولى</h2>
@@ -345,7 +366,7 @@ const cardData = {
             ]
         }
 
-    ]
+    ],
 };
 
 
