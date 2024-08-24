@@ -27,6 +27,7 @@
           border-radius: 50px;
         }
         nav{
+          z-index: 9999;
           top: 0;
           right: 20%;
           left: 20%;
@@ -35,8 +36,7 @@
           justify-content: center;
           align-items: center;
         }
-
-header h1 {
+        header h1 {
     margin-bottom: 0.5em;
     margin-top: 0.5em;
     font-size: 2rem;
@@ -59,11 +59,14 @@ header h1 {
             background-color: #fff;
   border: 2px solid #264143;
   box-shadow: 3px 4px 0px 1px #E99F4C;
-  width: 290px;            margin-bottom: 10px;
+  width: 290px;
+  margin-bottom: 10px;
             transition: background-color 0.3s, box-shadow 0.3s;
         }
         .select-btn:hover {
-            background-color: #f0f4f8;
+          box-shadow: none;
+          translate: 3px 4px;
+          background-color: #f0f4f8;
         }
         .select-btn .btn-text {
             font-size: 18px;
